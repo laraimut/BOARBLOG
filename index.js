@@ -4,7 +4,7 @@ import AboutMe from './components/testing';
 import TechSkill from './components/TechSkill';
 import React3DView from './components/modelAbout';
 import FlyingPlane from './components/planeflying';
-import ContactMe from './components/contactMe';
+import ContactMe from './components/Menu';
 import Projects from './components/Projects';
 
 import MeRobot from './components/meRobot';
@@ -15,7 +15,7 @@ AppRegistry.registerComponent('testing', ()=> AboutMe);
 AppRegistry.registerComponent('TechSkill', ()=> TechSkill);
 AppRegistry.registerComponent('React3DView', ()=> React3DView);
 AppRegistry.registerComponent('FlyingPlane', ()=>FlyingPlane);
-AppRegistry.registerComponent('ContactMe',()=>ContactMe);
+AppRegistry.registerComponent('Menu',()=>ContactMe);
 AppRegistry.registerComponent('Projects', ()=>Projects);
 
 AppRegistry.registerComponent('MeRobot', ()=>MeRobot);

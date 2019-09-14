@@ -81,8 +81,10 @@ const styles = StyleSheet.create({
         marginBottom: 20,
         width: 50,
         height: 50,
-        marginLeft:-20,
-        marginTop:10
+        marginLeft:-100,
+        marginTop:10,
+        marginLeft:20
+     
       }
 
 })
@@ -106,13 +108,14 @@ const styles = StyleSheet.create({
                         ? "going to main menu in " + Math.floor(remainingTime/1000)
                         : " "}
                   </Text>
+                  <View style={{flexDirection: 'row',marginLeft:-100,marginTop:20}}>
                   
                   <Image style={styles.icon} source={{uri:'./static_assets/msg.png'}}/>
 
                   <Image style={styles.icon} source={{uri:'./static_assets/wa.png'}}/>
 
                   <Image style={styles.icon} source={{uri:'./static_assets/ig.png'}}/>
-
+</View>
                 </View>
               )}
             />
