@@ -9,7 +9,7 @@ function init(bundle, parent, options = {}) {
     ...options,
   });
 //Cylinder
-  const aboutMePanal = new Surface(800, 600, Surface.SurfaceShape.Flat);
+  let aboutMePanal = new Surface(800, 600, Surface.SurfaceShape.Flat);
   aboutMePanal.setAngle(0,0);
    const techSkillPanal = new Surface(600, 600, Surface.SurfaceShape.Flat);
    techSkillPanal.setAngle(67,0);
@@ -26,9 +26,9 @@ function init(bundle, parent, options = {}) {
 
 
     r360.renderToSurface(
-      r360.createRoot('testing'),
+      r360.createRoot('about' , {text:"jojo"}),
       aboutMePanal,
-    )
+    );
 
   r360.renderToSurface(
     r360.createRoot('TechSkill'),
