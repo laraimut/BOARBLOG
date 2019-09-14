@@ -57,7 +57,10 @@ function init(bundle, parent, options = {}) {
     r360.createRoot('FlyingPlane'),
     new Location([0, 2, 0]),
   )
-  
+  r360.renderToLocation(
+    r360.createRoot('cloude'),
+    new Location([1, 1, 1]),
+  )
   r360.renderToLocation(
     r360.createRoot('MeRobot'),
     new Location([-1, 0, -1]),
