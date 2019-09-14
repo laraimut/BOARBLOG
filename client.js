@@ -20,13 +20,13 @@ function init(bundle, parent, options = {}) {
    const projectPanal = new Surface(600, 600, Surface.SurfaceShape.Flat);
    projectPanal.setAngle(40,0); 
 
-   const photolibPanal = new Surface(1000, 600, Surface.SurfaceShape.Cylinder);
-   photolibPanal.setAngle(0,-20); 
+  //  const photolibPanal = new Surface(1000, 600, Surface.SurfaceShape.Cylinder);
+  //  photolibPanal.setAngle(0,-20); 
 
 
 
     r360.renderToSurface(
-      r360.createRoot('AboutMe'),
+      r360.createRoot('testing'),
       aboutMePanal,
     )
 
@@ -46,10 +46,10 @@ function init(bundle, parent, options = {}) {
     projectPanal,
   )
 
-  r360.renderToSurface(
-    r360.createRoot('PhotoLib'),
-    photolibPanal,
-  )
+  // r360.renderToSurface(
+  //   r360.createRoot('PhotoLib'),
+  //   photolibPanal,
+  // )
 
   r360.renderToLocation(
     r360.createRoot('FlyingPlane'),
