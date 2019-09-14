@@ -2,6 +2,7 @@ import React,{Component} from 'react';
 import {View, Text, Image, StyleSheet} from 'react-360';
 import GazeButton from "react-360-gaze-button";
 import getMeme from "../mock/meme";
+import getLatestMovies from "../mock/movie";
 
 
 
@@ -14,6 +15,8 @@ export default class testing extends Component {
     componentDidMount(): void {
         getMeme()
             .then(res => console.log(res));
+        // getLatestMovies()
+        //     .then(res => console.log(res));
     }
 
     setGazed = () => {
