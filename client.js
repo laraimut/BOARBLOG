@@ -1,4 +1,6 @@
 import {ReactInstance, Location, Surface} from 'react-360-web';
+import CustomRaycaster from "./controller/custom-raycaster";
+
 
 
 function init(bundle, parent, options = {}) {
@@ -60,7 +62,8 @@ function init(bundle, parent, options = {}) {
     r360.createRoot('MeRobot'),
     new Location([-1, 0, -1]),
   )
-
+  r360.controls.clearRaycasters();
+  r360.controls.addRaycaster(CustomRaycaster);
   
   r360.compositor.setBackground('./static_assets/360_world.jpg');
 
