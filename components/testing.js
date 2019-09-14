@@ -1,6 +1,9 @@
 import React,{Component} from 'react';
 import {View, Text, Image, StyleSheet} from 'react-360';
 import GazeButton from "react-360-gaze-button";
+import getMeme from "../mock/meme";
+
+
 
 
 export default class testing extends Component { 
@@ -8,7 +11,12 @@ export default class testing extends Component {
         gazed: false
       };
 
-        setGazed = () => {
+    componentDidMount(): void {
+        getMeme()
+            .then(res => console.log(res));
+    }
+
+    setGazed = () => {
     this.setState({ gazed: true });
   };
     // handleButtonClick = () => {
@@ -82,8 +90,7 @@ const styles = StyleSheet.create({
         width: 50,
         height: 50,
         marginLeft:-100,
-        marginTop:10,
-        marginLeft:20
+        marginTop:10
      
       }
 
