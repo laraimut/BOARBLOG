@@ -12,13 +12,13 @@ function init(bundle, parent, options = {}) {
   const aboutMePanal = new Surface(800, 600, Surface.SurfaceShape.Flat);
   aboutMePanal.setAngle(0,0);
    const techSkillPanal = new Surface(600, 600, Surface.SurfaceShape.Flat);
-   techSkillPanal.setAngle(67,0);
+   techSkillPanal.setAngle(87,0);
 
    const contactPanal = new Surface(800, 600, Surface.SurfaceShape.Flat);
    contactPanal.setAngle(0,-20); 
 
    const projectPanal = new Surface(600, 600, Surface.SurfaceShape.Flat);
-   projectPanal.setAngle(40,0); 
+   projectPanal.setAngle(20,0); 
 
   //  const photolibPanal = new Surface(1000, 600, Surface.SurfaceShape.Cylinder);
   //  photolibPanal.setAngle(0,-20); 
@@ -42,7 +42,7 @@ function init(bundle, parent, options = {}) {
   )
 
   r360.renderToSurface(
-    r360.createRoot('Projects'),
+    r360.createRoot('Movie'),
     projectPanal,
   )
 
@@ -62,7 +62,7 @@ function init(bundle, parent, options = {}) {
   )
 
   
-  r360.compositor.setBackground('./static_assets/360_world.jpg');
+  r360.compositor.setBackground('./static_assets/sunny.jpg');
 
 }
 
