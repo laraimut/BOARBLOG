@@ -37,7 +37,7 @@ function init(bundle, parent, options = {}) {
 
   
   r360.renderToSurface(
-    r360.createRoot('ContactMe'),
+    r360.createRoot('Menu'),
     contactPanal,
   )
 
