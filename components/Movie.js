@@ -1,15 +1,37 @@
 import React ,{Component}from 'react';
 import {View, Text, StyleSheet, Image, VrButton} from 'react-360';
+import GazeButton from "react-360-gaze-button";
 
 
 export default class Movie extends Component{ 
-   
+    setGazed = () => {
+		this.setState({ gazed: true, isLoading: true });
+	};
+
+	state = {
+		gazed: false,
+		isLoading: false,
+
+		currentIndex: 0
+	}
+    loadNext = async () => {
+		this.state.currentIndex === this.state.news.length 
+			? this.fetchNews('news') 
+			: this.loadNews(this.state.currentIndex + 1)
+	}
+
+	loadPrevious = async () => {
+		this.state.currentIndex === 0 
+			? this.fetchNews('news') 
+			: this.loadNews(this.state.currentIndex - 1)
+	}
+
 
     render() { 
         const styles = StyleSheet.create({
                     aboutWrapper: {
             width: 600,
-            height: 500,
+            height: 600,
             backgroundColor: "rgba(255, 255, 255, 0.4)",
 
             flexDirection: 'column',
@@ -40,13 +62,54 @@ export default class Movie extends Component{
             height: 200,
         
             marginTop:5
+        },
+        greetingBox: (elapsed, total) => ({
+            padding: 20,
+            backgroundColor: `rgba(255, 255, 255, 1)`,
+            borderColor: '#639dda',
+            borderWidth: 2,
+            marginTop: 5,
+        }),
+        greeting: {
+          fontSize: 30,
+          textAlign: 'center',
+        },
+        title: {
+            backgroundColor: 'rgba(255, 255, 255, 0)',
+            fontSize: 30,
+            color: '#fff',
+            textAlign: 'center',
+        },
+        textContainer: {
+            justifyContent: 'center',
+            alignItems: 'center',
+        },  imageItem3:{
+            width: 50,
+            height: 50
         }
     
     })
+    const { gazed, title, imageUrl, text, isLoading } = this.state;
+
     return(
         <View style={styles.aboutWrapper}>
          <Text style={styles.actorImage}> LatestMovie </Text>
+         <GazeButton
+			duration={1000}
+			onClick={this.loadPrevious}
+			render={(remainingTime, isGazed) => {
+                const opacity = 1 - (remainingTime/1000)
+
+				return (
+					<View style={styles.greetingBox}>
+					                <Image style={styles.imageItem3} source={{uri:'./static_assets/kiri.png'}}/>
+					</View>
+				)}
+			}
+			style={styles.gazeButton}
+		/>
         <View style={{ flexDirection: 'row'}}>
+    
             <View style={styles.skillWrapper}>
                 <VrButton>
                 <Text style={styles.textItem2}>Judul</Text>
@@ -63,10 +126,24 @@ export default class Movie extends Component{
                     <Text style={styles.textItem}>MicroFocus</Text>
                 </VrButton>
             </View>
-           
+         
            
         </View>
-       
+        <GazeButton
+			duration={1000}
+			onClick={this.loadPrevious}
+			render={(remainingTime, isGazed) => {
+                const opacity = 1 - (remainingTime/1000)
+
+				return (
+					<View style={styles.greetingBox}>
+					                <Image style={styles.imageItem3} source={{uri:'./static_assets/kanan.png'}}/>
+
+					</View>
+				)}
+			}
+			style={styles.gazeButton}
+		/>
         </View> 
    );
 }
