@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
             {translate: [0, 0, 0]}
           ]
         ,
-        marginTop:-100,
+        marginTop:-80,
         marginLeft:-200
     },
     imageItem:{
@@ -105,7 +105,7 @@ const styles = StyleSheet.create({
                     {gazed
                       ? " "
                       : isGazed
-                        ? "going to main menu in " + Math.floor(remainingTime/1000)
+                        ? "going to entertainment in " + Math.floor(remainingTime/1000)
                         : " "}
                   </Text>
                   <View style={{flexDirection: 'row',marginLeft:-100,marginTop:20}}>

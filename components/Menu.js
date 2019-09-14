@@ -28,13 +28,20 @@ render() {    const styles = StyleSheet.create({
         marginTop:20
     },
     skillWrapper:{
-        margin:15,
-        height: 300,
-        width:650,
+        marginTop:50,
+        height: 150,
+        width:150,
         backgroundColor:'#ffff',
         borderRadius: 20,
-        alignItems: 'center'
-    }
+        alignItems: 'center',
+        marginLeft:70
+    },    icon:{
+     
+        width: 110,
+        height: 110,
+        marginTop:20
+     
+      }
 
 })
 
