@@ -13,11 +13,8 @@ export default class Movie extends Component{
             backgroundColor: "rgba(255, 255, 255, 0.4)",
 
             flexDirection: 'column',
-            alignItems: 'center',
-            borderRadius: 20,
-            transform: [
-                {translate: [0, 2, -30]}
-              ]
+            alignItems: 'center'
+          
         },
         actorImage: {
             fontSize:60
@@ -48,7 +45,7 @@ export default class Movie extends Component{
     })
     return(
         <View style={styles.aboutWrapper}>
-         <Text style={styles.actorImage}> Latest Movie </Text>
+         <Text style={styles.actorImage}> LatestMovie </Text>
         <View style={{ flexDirection: 'row'}}>
             <View style={styles.skillWrapper}>
                 <VrButton>
@@ -58,6 +55,15 @@ export default class Movie extends Component{
                     <Text style={styles.textItem}>MicroFocus</Text>
                 </VrButton>
             </View>
+            <View style={styles.skillWrapper}>
+                <VrButton>
+                <Text style={styles.textItem2}>Judul</Text>
+
+                <Image style={styles.imageItem2} source={{uri:'./static_assets/people.png'}}/>
+                    <Text style={styles.textItem}>MicroFocus</Text>
+                </VrButton>
+            </View>
+           
            
         </View>
        
