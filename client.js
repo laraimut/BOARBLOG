@@ -12,7 +12,7 @@ function init(bundle, parent, options = {}) {
   const aboutMePanal = new Surface(800, 600, Surface.SurfaceShape.Flat);
   aboutMePanal.setAngle(0,0);
    const techSkillPanal = new Surface(600, 600, Surface.SurfaceShape.Flat);
-   techSkillPanal.setAngle(87,0);
+   techSkillPanal.setAngle(86.8,0);
 
    const contactPanal = new Surface(800, 600, Surface.SurfaceShape.Flat);
    contactPanal.setAngle(0,-20); 
@@ -62,7 +62,7 @@ function init(bundle, parent, options = {}) {
   )
 
   
-  r360.compositor.setBackground('./static_assets/sunny.jpg');
+  r360.compositor.setBackground('./static_assets/360_world.jpg');
 
 }
 

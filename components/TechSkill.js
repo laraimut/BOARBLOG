@@ -42,13 +42,9 @@ const styles = StyleSheet.create({
     aboutWrapper: {
         width: 600,
         height: 500,
-        backgroundColor:'#1769aa',
+        backgroundColor: "rgba(255, 255, 255, 0.4)",
         flexDirection: 'column',
-        alignItems: 'center',
-        borderRadius: 20,
-        transform: [
-            {translate: [0, 2, -30]}
-          ]
+        alignItems: 'center'
     },
     actorImage: {
         marginBottom: 20,
