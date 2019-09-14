@@ -8,7 +8,11 @@ const ContactMe =()=>{
         <View style={{ flexDirection: 'row'}}>
             <View style={styles.skillWrapper}>
                 <Text style={styles.textItem}>
-                   
+                    Kushagra305@gmail.com
+                    9818011696
+                    https://github.com/KushagraGitter
+                    https://twitter.com/kush1234
+                    https://www.facebook.com/kushagra
                 </Text>
             </View>
             

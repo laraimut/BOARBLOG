@@ -26,9 +26,9 @@ function init(bundle, parent, options = {}) {
 
 
     r360.renderToSurface(
-      r360.createRoot('testing'),
-      aboutMePanal,
-    )
+      r360.createRoot('testing',{isi:'Welcome!'}),
+     aboutMePanal,
+    );
 
   r360.renderToSurface(
     r360.createRoot('TechSkill'),
