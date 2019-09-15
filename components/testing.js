@@ -93,7 +93,7 @@ const styles = StyleSheet.create({
         width: 50,
         height: 50,
         marginLeft:-100,
-        marginTop:10
+        marginTop:10,marginLeft:20
      
       }
 
