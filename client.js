@@ -68,8 +68,8 @@ function init(bundle, parent, options = {}) {
     new Location([0, 2, 0]),
   )
   r360.renderToLocation(
-    r360.createRoot('cloude'),
-    new Location([1, 1, 1]),
+    r360.createRoot('cloud'),
+    new Location([1, 0, 0]),
   )
   r360.renderToLocation(
     r360.createRoot('MeRobot'),

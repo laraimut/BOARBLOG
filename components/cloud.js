@@ -29,20 +29,22 @@ export default class Cloud extends React.Component {
           />
         
         <AnimatedEntity
-        source={{ obj: asset('meRobot.obj'),
-        mtl: asset('meRobotmaterials.mtl'),
+        source={{ obj: asset('sun.obj'),
+        mtl: asset('sun.mtl'),
+
         }}
 
         lit={true}
         style={{
           color: "#FFF",
           transform: [
-            {translate: [0, -0.6, -0.5]},
+            {translate: [2, 6 ,0]},
             {rotateY:this.rotateY},
-            {scale: 0.2}
+            {scale: 0.5}
           ]
         }}
         />
+        {/* <Text>It's a Sunny day!</Text> */}
       </View>
     );
   }
