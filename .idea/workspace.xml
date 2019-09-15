@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="df054c76-7f49-4350-b1d6-13f58b4f4922" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/components/cloud.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static_assets/cloud2.obj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client.js" beforeDir="false" afterPath="$PROJECT_DIR$/client.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -79,7 +76,7 @@
       <updated>1568477626504</updated>
       <workItem from="1568477645374" duration="1858000" />
       <workItem from="1568481566209" duration="8026000" />
-      <workItem from="1568489743108" duration="8835000" />
+      <workItem from="1568489743108" duration="9716000" />
     </task>
     <servers />
   </component>
