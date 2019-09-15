@@ -106,7 +106,7 @@ export default class Movie extends Component{
         if(this.state.movies.length>0){
             return(
                 <View style={styles.aboutWrapper}>
-                    <Text style={styles.actorImage}> LatestMovie </Text>
+                    <Text style={styles.actorImage}> LatestMeme </Text>
                     <GazeButton
                         duration={100}
                         onClick={() => {

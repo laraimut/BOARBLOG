@@ -1,8 +1,8 @@
 import React ,{Component }from 'react';
 import {View, Text, StyleSheet, Image, VrButton, AsyncStorage} from 'react-360';
 import GazeButton from "react-360-gaze-button";
-import getLatestMovies from "../mock/movie";
 
+import getTopRated from "../mock/toprated";
 
 export default class Movie extends Component{ 
     setGazed = () => {
@@ -17,7 +17,7 @@ export default class Movie extends Component{
 	}
 
 	componentDidMount(): void {
-        getLatestMovies()
+        getTopRated()
             .then(res => {
                 console.log(res);
                 this.setState({
@@ -106,7 +106,7 @@ export default class Movie extends Component{
         if(this.state.movies.length>0){
             return(
                 <View style={styles.aboutWrapper}>
-                    <Text style={styles.actorImage}> LatestMovie </Text>
+                    <Text style={styles.actorImage}> Top Rated </Text>
                     <GazeButton
                         duration={100}
                         onClick={() => {
@@ -114,7 +114,7 @@ export default class Movie extends Component{
                             this.setState({
                                 currentIndex:this.state.currentIndex-=1
                             })
-                            getLatestMovies(this.state.currentIndex)
+                            getTopRated(this.state.currentIndex)
                                 .then(res => {
                                     this.setState({
                                         movies:res
@@ -150,7 +150,7 @@ export default class Movie extends Component{
                             this.setState({
                                 currentIndex:this.state.currentIndex+=1
                             })
-                            getLatestMovies(this.state.currentIndex)
+                            getTopRated(this.state.currentIndex)
                                 .then(res => {
                                     this.setState({
                                         movies:res
@@ -186,7 +186,7 @@ export default class Movie extends Component{
                             this.setState({
                                 currentIndex:this.state.currentIndex-=1
                             })
-                            getLatestMovies(this.state.currentIndex)
+                            getTopRated(this.state.currentIndex)
                                 .then(res => {
                                     this.setState({
                                         movies:res

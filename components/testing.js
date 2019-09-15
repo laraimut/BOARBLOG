@@ -1,20 +1,82 @@
 import React,{Component} from 'react';
 import {View, Text, Image, StyleSheet} from 'react-360';
 import GazeButton from "react-360-gaze-button";
-import getMeme from "../mock/meme";
-import getLatestMovies from "../mock/movie";
+import styles from './styles';
+import axios from 'axios';
 
 
-
+const News = (title, text, imageUrl) => (
+    <View style={styles.newsContainer}>
+        <Text style={styles.title}>
+            {title}
+        </Text>
+        <View>
+            <Image source={imageUrl}/>
+            <Text style={styles.title}>
+                {text}
+            </Text>
+        </View>
+    </View>
+)
 
 export default class testing extends Component { 
     state = {
-        gazed: false
+        gazed: false,
+        message:"Welcome",
+        isLoading: false,
+        currentIndex: 0,
+        news: [],
+        title: 'Default title',
+        imageUrl: '',
+        text: 'Default description',
+
       };
+    componentWillMount = () => {
+        axios.get('https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=5019130324db4f7b98443775a702faaf')
+            .then(res => console.log(res.data.articles));
+    }
+
+    fetchNews = async (source) => {
+        try {
+            let response = await fetch(
+                source,
+            );
+            let responseJson = await response.json();
+            console.log(responseJson)
+            this.setState({
+                news: responseJson.articles,
+                title: responseJson.articles[0].title,
+                text: responseJson.articles[0].description,
+                imageUrl: responseJson.articles[0].urlToImage
+            })
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
+    loadNews = (index) => {
+        this.setState({
+            currentIndex: index,
+            title: this.state.news[index].title,
+            text: this.state.news[index].description,
+            imageUrl: this.state.news[index].urlToImage
+        })
+    }
+
+    loadNext = async () => {
+        this.state.currentIndex === this.state.news.length
+            ? this.fetchNews('news')
+            : this.loadNews(this.state.currentIndex + 1)
+    }
+
+    loadPrevious = async () => {
+        this.state.currentIndex === 0
+            ? this.fetchNews('news')
+            : this.loadNews(this.state.currentIndex - 1)
+    }
 
     componentDidMount(): void {
-        getMeme()
-            .then(res => console.log(res));
+
         // getLatestMovies()
         //     .then(res => console.log(res));
     }
@@ -101,66 +163,38 @@ const styles = StyleSheet.create({
         return (
             <View style={styles.panel}>
             <GazeButton
-              duration={3000}
+              duration={10000}
               onClick={this.setGazed}
               render={(remainingTime, isGazed) => (
                 <View style={styles.greetingBox}>
-                    <Text style={styles.textItem}>Welcome!</Text>
+                    <Text style={styles.textItem}>{this.state.message}</Text>
                     <Text style={styles.nama}>Jonatan Laksamana</Text>
                     <Image style={styles.imageItem2} source={{uri:'./static_assets/people.png'}}/>
-
-                            <Image style={styles.imageItem} source={{uri:'./static_assets/ok.png'}}/>
+                    <Image style={styles.imageItem} source={{uri:'./static_assets/ok.png'}}/>
 
                   <Text style={styles.greeting}>
                     {gazed
-                      ? " "
+                      ? "congrats"
                       : isGazed
-                        ? "going to entertainment in " + Math.floor(remainingTime/1000)
+                        ? "Hold your eye sight yaa " + Math.floor(remainingTime/1000)
                         : " "}
                   </Text>
-                  <View style={{flexDirection: 'row',marginLeft:-100,marginTop:20}}>
-                  
-                  <Image style={styles.icon} source={{uri:'./static_assets/msg.png'}}/>
-
-                  <Image style={styles.icon} source={{uri:'./static_assets/wa.png'}}/>
-
-                  <Image style={styles.icon} source={{uri:'./static_assets/ig.png'}}/>
-</View>
                 </View>
               )}
             />
+
+                <View style={{flexDirection: 'row',marginLeft:0,marginTop:20}}>
+
+                    <Image style={styles.icon} source={{uri:'./static_assets/msg.png'}}/>
+
+                    <Image style={styles.icon} source={{uri:'./static_assets/wa.png'}}/>
+
+                    <Image style={styles.icon} source={{uri:'./static_assets/ig.png'}}/>
+                </View>
+
           </View>
-//             <View style={styles.aboutWrapper}>
-//             <View style={styles.textWrapper}>
-//             <Text style={styles.textItem}>
-      
-//   {this.props.isi}
-//             </Text>
-//             {/* <VrButton  onClick={this.handleButtonClick}/> */}
-//             <Image style={styles.imageItem} source={{uri:'./static_assets/ok.png'}}/>
-           
-//             </View>
-           
-//        </View>
+
         );
       }
     }
 
-// const testing =(props)=>{
-
-//     return(
-//         <View style={styles.aboutWrapper}>
-//              <View style={styles.textWrapper}>
-//              <Text style={styles.textItem}>
-       
-//    WELCOME!
-//              </Text>
-//              <Image source={{uri: 'https://spng.pngfly.com/20180320/yzq/kisspng-arrow-computer-icons-logo-white-down-arrow-png-5ab1bd5bd37fc0.3074533915215977878663.jpg'}} />
-//              </View>
-            
-//         </View>
-//     )
-// }
-
-
-// export default testing;

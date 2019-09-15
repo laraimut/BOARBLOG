@@ -1,41 +1,21 @@
 import React from 'react';
 import {View, Text, image, StyleSheet, Image} from 'react-360';
+import images from "../mock/images";
 
-const AboutMe =()=>{
-    return(
-        <View style={styles.aboutWrapper}>
-         <Image style={styles.actorImage} source={{uri:'./static_assets/techskillspink.png'}}/>
-        <View style={{ flexDirection: 'row'}}>
-            <View style={styles.skillWrapper}>
-                <Text style={styles.textItem}>ReactJS</Text>
+
+const a = ["meme1.jpeg" , "memeee.jpg"];
+class AboutMe  extends  React.Component{
+
+
+    render(){
+        return(
+            <View style={styles.aboutWrapper}>
+
+                <Image style={styles.image} source={{uri:`./static_assets/${a[1]}`}}/>
             </View>
-            <View style={styles.skillWrapper}>
-                <Text style={styles.textItem}>JavaScript</Text>
-            </View>
-            
-        </View>
-           
-        <View style={{ flexDirection: 'row'}}>
-            <View style={styles.skillWrapper}>
-             <Text style={styles.textItem}>HTML5</Text>
-            </View>
-            <View style={styles.skillWrapper}>
-             <Text style={styles.textItem}>CSS</Text>
-            </View>
-           
-        </View>    
-        
-        <View style={{ flexDirection: 'row'}}>
-        <View style={styles.skillWrapper}>
-             <Text style={styles.textItem}>AngularJS</Text>
-            </View>
-            <View style={styles.skillWrapper}>
-                <Text style={styles.textItem}>NodeJS</Text>
-            </View>
-          
-        </View>    
-        </View> 
-    )
+        )
+    }
+
 }
 
 const styles = StyleSheet.create({
@@ -55,6 +35,10 @@ const styles = StyleSheet.create({
         fontSize: 40,
         color:'#ffff',
         marginTop:20
+    },
+    image:{
+        width:400,
+        height:400
     },
     skillWrapper:{
         margin:15,
