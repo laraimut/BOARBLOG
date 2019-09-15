@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
-import {View, Text, image, StyleSheet, Image} from 'react-360';
-
+import {View, Text, image, StyleSheet, Image , AsyncStorage} from 'react-360';
+import GazeButton from "react-360-gaze-button";
 
 
 
@@ -51,17 +51,46 @@ return (
    <View style={{ flexDirection: 'row'}}>
    <View style={{flexDirection: 'row',marginLeft:-100,marginTop:20}}>
    <View style={styles.skillWrapper}>
-           
-       
-                  <Image style={styles.icon} source={{uri:'./static_assets/music.jpg'}}/>
-                  </View>
-                  <View style={styles.skillWrapper}>
-                  <Image style={styles.icon} source={{uri:'./static_assets/movie.jpeg'}}/>
-                  </View>
-                  <View style={styles.skillWrapper}>
-                  <Image style={styles.icon} source={{uri:'./static_assets/9.png'}}/>
-</View>
-                </View>
+       <GazeButton
+           duration={100}
+           onClick={() => {
+               console.log("asd");
+           }}
+           render={(remainingTime, isGazed) => (
+               <Image style={styles.icon} source={{uri:'./static_assets/music.jpg'}}/>
+           )}
+       />
+
+   </View>
+       <View style={styles.skillWrapper}>
+           <GazeButton
+               duration={100}
+               onClick={() => {
+                   AsyncStorage
+                       .getItem("asdasd")
+                       .then(res => console.log(res));
+               }}
+               render={(remainingTime, isGazed) => (
+                   <Image style={styles.icon} source={{uri:'./static_assets/movie.jpeg'}}/>
+               )}
+           />
+
+       </View>
+       <View style={styles.skillWrapper}>
+           <GazeButton
+               duration={100}
+               onClick={() => {
+                   AsyncStorage
+                       .setItem('meme', "meme");
+
+               }}
+               render={(remainingTime, isGazed) => (
+                   <Image style={styles.icon} source={{uri:'./static_assets/9.png'}}/>
+               )}
+           />
+
+        </View>
+   </View>
     
        
    </View>

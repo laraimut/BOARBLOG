@@ -2,9 +2,23 @@ import React ,{Component }from 'react';
 import {View, Text, StyleSheet, Image, VrButton, AsyncStorage} from 'react-360';
 import GazeButton from "react-360-gaze-button";
 import getLatestMovies from "../mock/movie";
+import axios from "axios";
 
 
-export default class Movie extends Component{ 
+const images = ["meme1.jpeg" , "memeee.jpg"];
+export default class Movie extends Component{
+    state={
+        idx:0
+    }
+    componentDidMount = () => {
+        axios.get('https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=5019130324db4f7b98443775a702faaf')
+            .then(res =>{
+                console.log(res.data.articles)
+                this.setState({
+                    artikel: res.data.articles.slice(0,2)
+                })
+            });
+    }
     setGazed = () => {
 		this.setState({ gazed: true, isLoading: true });
 	};
@@ -13,18 +27,9 @@ export default class Movie extends Component{
 		gazed: false,
 		isLoading: false,
         movies:[],
+        artikel:[],
 		currentIndex: 0
 	}
-
-	componentDidMount(): void {
-        getLatestMovies()
-            .then(res => {
-                console.log(res);
-                this.setState({
-                    movies:res
-                })
-            })
-    }
 
     loadNext = async () => {
 		this.state.currentIndex === this.state.news.length 
@@ -43,7 +48,7 @@ export default class Movie extends Component{
 
         const styles = StyleSheet.create({
                     aboutWrapper: {
-            width: 600,
+            width: 800,
             height: 600,
             backgroundColor: "rgba(255, 255, 255, 0.4)",
 
@@ -103,23 +108,24 @@ export default class Movie extends Component{
     
     })
     const { gazed, title, imageUrl, text, isLoading } = this.state;
-        if(this.state.movies.length>0){
+        if(this.state.artikel.length>0){
             return(
                 <View style={styles.aboutWrapper}>
-                    <Text style={styles.actorImage}> LatestMovie </Text>
+                    <Text style={styles.actorImage}> News </Text>
                     <GazeButton
                         duration={100}
                         onClick={() => {
 
-                            this.setState({
-                                currentIndex:this.state.currentIndex-=1
-                            })
-                            getLatestMovies(this.state.currentIndex)
-                                .then(res => {
+                            axios.get('https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=5019130324db4f7b98443775a702faaf')
+                                .then(res =>{
+                                    console.log(res.data.articles)
                                     this.setState({
-                                        movies:res
+                                        artikel: res.data.articles.slice(this.state.idx,this.state.idx+2),
+                                        idx: this.state.idx-=1
+
                                     })
                                 });
+
 
                         }}
                         render={(remainingTime, isGazed) => {
@@ -134,11 +140,11 @@ export default class Movie extends Component{
                         style={styles.gazeButton}
                     />
                     <View style={{ flexDirection: 'row'}}>
-                        {this.state.movies.map(item => (
+                        {this.state.artikel.map((item,idx) => (
                             <View style={styles.skillWrapper}>
                                 <Text>{item.title}</Text>
                                 <VrButton>
-                                    <Image style={styles.skillWrapper} source={{uri:`https://image.tmdb.org/t/p/w500/${item.poster_path}`}}/>
+                                    <Image style={styles.skillWrapper} source={{uri:`./static_assets/${images[idx]}`}}/>
                                 </VrButton>
                             </View>
                         ))}
@@ -147,17 +153,16 @@ export default class Movie extends Component{
                         duration={100}
                         onClick={() => {
 
-                            this.setState({
-                                currentIndex:this.state.currentIndex+=1
-                            })
-                            getLatestMovies(this.state.currentIndex)
-                                .then(res => {
+                            axios.get('https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=5019130324db4f7b98443775a702faaf')
+                                .then(res =>{
+                                    console.log(res.data.articles)
                                     this.setState({
-                                        movies:res
+                                        artikel: res.data.articles.slice(this.state.idx,this.state.idx+2),
+                                        idx: this.state.idx+=1
+
                                     })
-                                    AsyncStorage
-                                        .setItem("url" , res[0].poster_path );
                                 });
+
 
                         }}
                         render={(remainingTime, isGazed) => {
