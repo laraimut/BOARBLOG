@@ -32,7 +32,7 @@ function init(bundle, parent, options = {}) {
 
 
     r360.renderToSurface(
-      r360.createRoot('storymenu',{isi:'Welcome!'}),
+      r360.createRoot('testing',{isi:'Welcome!'}),
      aboutMePanal,
     );
 
