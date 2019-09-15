@@ -1,8 +1,9 @@
-import {ReactInstance, Location, Surface} from 'react-360-web';
+import {ReactInstance, Location, Surface } from 'react-360-web';
 import CustomRaycaster from "./controller/custom-raycaster";
 
 
 
+let localstorage = window.localStorage;
 function init(bundle, parent, options = {}) {
   const r360 = new ReactInstance(bundle, parent, {
     fullScreen: true,
@@ -16,6 +17,9 @@ function init(bundle, parent, options = {}) {
    const techSkillPanal = new Surface(600, 600, Surface.SurfaceShape.Flat);
    techSkillPanal.setAngle(86.8,0);
 
+    const scroll = new Surface(600, 600, Surface.SurfaceShape.Flat);
+    scroll.setAngle(180,0);
+
    const contactPanal = new Surface(800, 600, Surface.SurfaceShape.Flat);
    contactPanal.setAngle(0,-20); 
 
@@ -28,12 +32,12 @@ function init(bundle, parent, options = {}) {
 
 
     r360.renderToSurface(
-      r360.createRoot('testing',{isi:'Welcome!'}),
+      r360.createRoot('storymenu',{isi:'Welcome!'}),
      aboutMePanal,
     );
 
   r360.renderToSurface(
-    r360.createRoot('TechSkill'),
+    r360.createRoot('Meme'),
     techSkillPanal,
   )
 
@@ -47,8 +51,14 @@ function init(bundle, parent, options = {}) {
     r360.createRoot('Movie'),
     projectPanal,
   )
+    r360.renderToSurface(
+        r360.createRoot('scrool'),
+        scroll,
+    )
 
-  // r360.renderToSurface(
+
+
+    // r360.renderToSurface(
   //   r360.createRoot('PhotoLib'),
   //   photolibPanal,
   // )

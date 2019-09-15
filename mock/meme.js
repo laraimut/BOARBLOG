@@ -7,4 +7,6 @@ function getMeme(){
         .then(res => res)
 }
 
+
+
 export  default getMeme;
